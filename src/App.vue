@@ -1,32 +1,41 @@
 <script setup lang="ts">
-import Home from './components/Home.vue'
-import About from './components/About.vue'
-import { ref } from 'vue'
-
-const myNumber = ref('')
-
-const dataFromChild = (data : string) => {
-    myNumber.value = data
-}
 </script>
 
 <template>
     <div id="nav">
-        <router-link to="/">Home</router-link> | 
-        <router-link to="/about">About</router-link>
+        <router-link :to="{ name : 'Home' }">Home</router-link>  |  
+        <router-link :to="{ name : 'About' }">About</router-link>
     </div>
     <router-view />
-    <Home msg="Hello Vue 3 + TypeScript + Vite"  :myNum ="myNumber"/>
-    <About msg="Message from App.vue" @personalNumber="dataFromChild" />
-
 </template>
 
 <style>
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Kaushan Script', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color:#b46684;
+  background-color: #ffdfd1;
+  width: 100vw;
+  min-height: 100vh;
+  letter-spacing: 2px;
+}
+#nav {
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: #b46684; 
 }
 </style>
